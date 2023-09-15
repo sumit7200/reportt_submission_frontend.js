@@ -1,0 +1,92 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the container */
+.container {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(7, 102, 184, 0.1);
+}
+
+/* Style the form title */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+/* Style form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border-color: hwb(90 76% 23%);
+}
+
+/* Style the error messages */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        font-size: 14px;
+    }
+}
+
+/* Additional responsive styles */
+@media screen and (max-width: 576px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+
