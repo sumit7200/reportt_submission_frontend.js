@@ -54,3 +54,31 @@ table th {
     font-size: 24px;
     font-weight: bold;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    /* Adjust container width for smaller screens */
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    /* Make the table responsive */
+    table th, table td {
+        padding: 5px;
+    }
+
+    /* Adjust font sizes for smaller screens */
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .card h2 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 20px;
+    }
+}
