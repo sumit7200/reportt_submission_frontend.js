@@ -1,88 +1,56 @@
 /* Reset some default styles */
-body, h1, table {
+body {
     margin: 0;
     padding: 0;
-}
-
-body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
 }
 
+/* Style the container */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
 }
 
+/* Style the heading */
 h1 {
     font-size: 24px;
-    color: #333;
     margin-bottom: 20px;
     text-align: center;
 }
 
+/* Style the table */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
 }
 
-table th,
-table td {
+table th, table td {
+    border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
 table th {
-    background-color: #333;
-    color: #fff;
-}
-
-table th:first-child,
-table td:first-child {
-    padding-left: 20px;
-}
-
-table th:last-child,
-table td:last-child {
-    padding-right: 20px;
-}
-
-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-table tr:hover {
-    background-color: #ddd;
-}
-
-/* Add some styles for the links */
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Add some styles for buttons */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
+/* Style the card */
+.card {
+    background-color: #007bff;
     color: #fff;
-    text-decoration: none;
-    border: none;
+    padding: 20px;
+    margin: 7px;
+    text-align: center;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
-.button:hover {
-    background-color: #0056b3;
+.card h2 {
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
 }
