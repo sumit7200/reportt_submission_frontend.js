@@ -1,26 +1,62 @@
-// Sample employee data (you can replace this with actual data fetched from a server)
-const employees = [
-    { employeeName: "John Doe", projectName: "vtt", date: "2023-09-18", hoursWorked: "5.0",comments:"good" },
-    { employeeName: "Jane Smith", projectName: "VTT", date: "2023-09-18", hoursWorked: "8.0",comments:"veryGood" },
-    { employeeName: "Bob Johnson", projectName: "VTT", date: "2023-09-18", hoursWorked: "2.0",comments:"Average" },
-];
-
-// Function to populate the employee table
-function populateTable() {
+// Function to fetch data from the API and populate the employee table
+function fetchDataAndPopulateTable() {
     const tableBody = document.querySelector("tbody");
     tableBody.innerHTML = "";
 
-    employees.forEach((employee) => {
-        const row = tableBody.insertRow();
-        row.innerHTML = `
-            <td>${employee.employeeName}</td>
-            <td>${employee.projectName}</td>
-            <td>${employee.date}</td>
-            <td>${employee.hoursWorked}</td>
-            <td>${employee.comments}</td>
-        `;
-    });
+    // Replace 'API_URL' with the actual URL of your API
+    fetch('http://localhost:8080/report/fetchAll')
+        .then((response) => response.json())
+        .then((data) => {
+            data.forEach((employee) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${employee.employeeName}</td>
+                    <td>${employee.projectName}</td>
+                    <td>${employee.date}</td>
+                    <td>${employee.hoursWorked}</td>
+                    <td>${employee.comments}</td>
+                    
+                `;
+            });
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+        });
 }
 
-// Call the function to populate the table when the page loads
-window.addEventListener("load", populateTable);
+//filter
+document.addEventListener("DOMContentLoaded", function () {
+    // Your initial data and setup code here
+
+    // Get references to the date input fields and the filter button
+    const startDateInput = document.getElementById("startDate");
+    const endDateInput = document.getElementById("endDate");
+    const filterButton = document.getElementById("filterButton");
+
+    // Add an event listener to the filter button
+    filterButton.addEventListener("click", function () {
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+
+        // Loop through the table rows and hide/show based on the date range
+        const rows = document.querySelectorAll("#employee-table tbody tr");
+
+        rows.forEach(function (row) {
+            const dateCell = row.querySelector("td:nth-child(3)"); // Assuming the date is in the third column
+
+            if (dateCell) {
+                const cellDate = new Date(dateCell.textContent);
+
+                if (cellDate >= startDate && cellDate <= endDate) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            }
+        });
+    });
+});
+
+
+// Call the function to fetch data and populate the table when the page loads
+window.addEventListener("load", fetchDataAndPopulateTable);

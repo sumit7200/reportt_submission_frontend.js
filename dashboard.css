@@ -1,84 +1,85 @@
 /* Reset some default styles */
-body {
+body, h1, h2, p, table {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
 }
 
-/* Style the container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
-/* Style the heading */
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
     text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Style the table */
 table {
     width: 100%;
     border-collapse: collapse;
-}
-
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-table th {
-    background-color: #f2f2f2;
-}
-
-/* Style the card */
-.card {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-    margin: 7px;
-    text-align: center;
-    border-radius: 5px;
     margin-top: 20px;
 }
 
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+thead th {
+    background-color: #333;
+    color: #fff;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.card {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
 .card h2 {
-    font-size: 18px;
-}
-
-.card p {
     font-size: 24px;
-    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 600px) {
-    /* Adjust container width for smaller screens */
-    .container {
-        max-width: 100%;
-        padding: 10px;
-    }
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
 
-    /* Make the table responsive */
-    table th, table td {
-        padding: 5px;
-    }
+input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-    /* Adjust font sizes for smaller screens */
-    h1 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
+button#filterButton {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
-    .card h2 {
-        font-size: 16px;
-    }
-
-    .card p {
-        font-size: 20px;
-    }
+button#filterButton:hover {
+    background-color: #555;
 }
