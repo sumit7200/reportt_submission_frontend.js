@@ -1,4 +1,6 @@
-// Function to fetch data from the API and populate the employee table
+
+window.addEventListener("load", fetchDataAndPopulateTable);
+ // Function to fetch data from the API and populate the employee table
 function fetchDataAndPopulateTable() {
     const tableBody = document.querySelector("tbody");
     tableBody.innerHTML = "";
@@ -10,6 +12,7 @@ function fetchDataAndPopulateTable() {
             data.forEach((employee) => {
                 const row = tableBody.insertRow();
                 row.innerHTML = `
+                    <td>${employee.id}
                     <td>${employee.employeeName}</td>
                     <td>${employee.projectName}</td>
                     <td>${employee.date}</td>
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const rows = document.querySelectorAll("#employee-table tbody tr");
 
         rows.forEach(function (row) {
-            const dateCell = row.querySelector("td:nth-child(3)"); // Assuming the date is in the third column
+            const dateCell = row.querySelector("td:nth-child(4)"); // Assuming the date is in the third column
 
             if (dateCell) {
                 const cellDate = new Date(dateCell.textContent);
@@ -57,6 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//Logout button
+const logoutButton = document.getElementById("logoutButton");
+
+    // Add an event listener to the logout button
+    logoutButton.addEventListener("click", function () {
+        // Perform logout actions here, such as redirecting to a logout page or clearing session data.
+        // For demonstration purposes, you can simply alert a message.
+        alert("Logged out successfully!");
+    });
+
+
+// window.history.pushState(null, null, window.location.href);window.onpopstate = function () {
+// };    
+
 
 // Call the function to fetch data and populate the table when the page loads
-window.addEventListener("load", fetchDataAndPopulateTable);
+

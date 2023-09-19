@@ -4,39 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Dashboard</title>
-    <link rel="stylesheet" href="/dashboard.css">
+    <link rel="stylesheet" href="./dashboard.css">
 </head>
 <body>
     <div class="container">
-        <h1>Employee Dashboard</h1>
-        <table id="employee-table">
-            <thead>
-                <tr>
-                    
-                    <th>EmployeeName</th>
-                    <th>ProjectName</th>
-                    <th>Date</th>
-                    <th>HoursWorked</th>
-                    <th>Comments</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <div class="card">
-                    <h2>Total Employee</h2>
-                    <p>1,000</p>
-                </div>
-                <div>
-                    <label for="startDate">Start Date:</label>
-                    <input type="date" id="startDate">
-                    <label for="endDate">End Date:</label>
-                    <input type="date" id="endDate">
-                    <button id="filterButton">Filter</button>
-                </div>
-                <!-- Employee data will be added here dynamically -->
-            </tbody>
-        </table>
+        <div class="sidebar">
+            <!-- Sidebar content goes here -->
+            <h2>Sidebar</h2>
+            <ul>
+                <li><a href="./chech2.html">Dashboard</a></li>
+                <li><a href="./reportsubmission.html">Report Submission</a></li>
+                <li><a href="./reportlisting.html">Report Listing</a></li>
+                <li><a href="./index.html" id="logoutButton">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Employee Dashboard</h1>
+            <table id="employee-table">
+                <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>EmployeeName</th>
+                        <th>ProjectName</th>
+                        <th>Date</th>
+                        <th>HoursWorked</th>
+                        <th>Comments</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <div class="card">
+                        <h2>Total Employee</h2>
+                        <p>1,000</p>
+                    </div>
+                    <div>
+                        <label for="startDate">Start Date:</label>
+                        <input type="date" id="startDate">
+                        <label for="endDate">End Date:</label>
+                        <input type="date" id="endDate">
+                        <button id="filterButton">Filter</button>
+                    </div>
+                    <!-- Employee data will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
     </div>
-    <script src="/dashboard.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>

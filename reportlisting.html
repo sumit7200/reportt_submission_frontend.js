@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report List</title>
+    <link rel="stylesheet" href="./reportlisting.css">
+</head>
+<body>
+    <h1>Report List</h1>
+
+    <div>
+        <label for="dateFilter">Filter by Date:</label>
+        <input type="date" id="dateFilter">
+    </div>
+
+    <div>
+        <label for="projectFilter">Filter by Project:</label>
+        <input type="text" id="projectFilter">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Report ID</th>
+                <th>Project Name</th>
+                <th>Date</th>
+                <!-- Add more table headers as needed -->
+            </tr>
+        </thead>
+        <tbody id="reportTable">
+            <!-- Report data will be displayed here -->
+        </tbody>
+    </table>
+
+    <div id="pagination">
+        <!-- Pagination buttons will be displayed here -->
+    </div>
+
+   <script src="./reportlisting.js"></script>
+    </body>
+</html>
