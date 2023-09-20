@@ -7,6 +7,7 @@ form.addEventListener("click", function (e) {
   const username = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const role = document.getElementById("role").value;
 
   //validation
   if (!validateUsername(username) || !validateEmail(email) || !validatePassword(password)) {
@@ -17,6 +18,7 @@ form.addEventListener("click", function (e) {
     name: username,
     email: email,
     password: password,
+    role:role,
   };
 
   fetch("http://localhost:8080/sign-up", {

@@ -11,7 +11,7 @@ form.addEventListener("submit", function (e) {
   fetch("http://localhost:8080/report/save", {
     method: "POST",
     body: JSON.stringify({
-      employeeName:employeeName,
+      employeeName: employeeName,
       projectName: projectName,
       date: date,
       hoursWorked: hoursWorked,
