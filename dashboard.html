@@ -12,10 +12,9 @@
             <!-- Sidebar content goes here -->
             <h2>Sidebar</h2>
             <ul>
-                <li><a href="./chech2.html">Dashboard</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
                 <li><a href="./reportsubmission.html">Report Submission</a></li>
                 <li><a href="./reportlisting.html">Report Listing</a></li>
-                <li><a href="./index.html" id="logoutButton">Logout</a></li>
             </ul>
         </div>
         <div class="main-content">
@@ -44,10 +43,15 @@
                         <input type="date" id="endDate">
                         <button id="filterButton">Filter</button>
                     </div>
+                   
                     <!-- Employee data will be added here dynamically -->
                 </tbody>
             </table>
+            
         </div>
+    </div>
+    <div class="logout" style="position: absolute; right: 3%; top: 6%;">
+        <button style="padding: 10px;border-radius: 12px; background: #df4e5d; color: #fff;" id="logoutButton"><a style="text-decoration: none;color: #fff;" href="./index.html">Logout  </a> </button>
     </div>
     <script src="dashboard.js"></script>
 </body>

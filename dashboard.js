@@ -27,6 +27,7 @@ function fetchDataAndPopulateTable() {
         });
 }
 
+
 //filter
 document.addEventListener("DOMContentLoaded", function () {
     // Your initial data and setup code here
@@ -68,6 +69,7 @@ const logoutButton = document.getElementById("logoutButton");
         // Perform logout actions here, such as redirecting to a logout page or clearing session data.
         // For demonstration purposes, you can simply alert a message.
         alert("Logged out successfully!");
+        window.location.replace('./index.html')
     });
 
 
@@ -76,4 +78,3 @@ const logoutButton = document.getElementById("logoutButton");
 
 
 // Call the function to fetch data and populate the table when the page loads
-

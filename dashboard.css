@@ -6,11 +6,13 @@ body, h1, h2, p, table {
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    position: relative;
 }
 
 .container {
+    width: 97%;
     display: flex; /* Use flexbox to create a layout */
-    max-width: 1200px; /* Increase max width to accommodate the sidebar */
+    /* max-width: 1200px; Increase max width to accommodate the sidebar */
     margin: 0 auto;
     padding: 20px;
     background-color: #f0f0f0;
@@ -97,4 +99,10 @@ button#filterButton {
 
 button#filterButton:hover {
     background-color: #555;
+}
+
+.logout{
+    position: absolute;
+    right: '371px';
+    top: '-40px';
 }

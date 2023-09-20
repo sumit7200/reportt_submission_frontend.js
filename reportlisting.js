@@ -1,37 +1,38 @@
-const reports = [
-    { id: 1, projectName: "Project A", date: "2023-09-01" },
-    { id: 2, projectName: "Project B", date: "2023-09-02" },
-    { id: 3, projectName: "Project C", date: "2023-09-03" },
-    { id: 4, projectName: "Project A", date: "2023-09-01" },
-    { id: 5, projectName: "Project B", date: "2023-09-02" },
-    { id: 6, projectName: "Project C", date: "2023-09-03" },
-    { id: 7, projectName: "Project A", date: "2023-09-01" },
-    { id: 8, projectName: "Project B", date: "2023-09-02" },
-    { id: 9, projectName: "Project C", date: "2023-09-03" },
-    { id: 10, projectName: "Project A", date: "2023-09-01" },
-    { id: 11, projectName: "Project B", date: "2023-09-02" },
-    { id: 12, projectName: "Project C", date: "2023-09-03" },
-    { id: 13, projectName: "Project A", date: "2023-09-01" },
-    { id: 14, projectName: "Project B", date: "2023-09-02" },
-    { id: 15, projectName: "Project C", date: "2023-09-03" },
-    { id: 16, projectName: "Project A", date: "2023-09-01" },
-    { id: 17, projectName: "Project B", date: "2023-09-02" },
-    { id: 18, projectName: "Project C", date: "2023-09-03" },
-    { id: 19, projectName: "Project A", date: "2023-09-01" },
-    { id: 20, projectName: "Project B", date: "2023-09-02" },
-    { id: 21, projectName: "Project C", date: "2023-09-03" },
-    { id: 22, projectName: "Project A", date: "2023-09-01" },
-    { id: 23, projectName: "Project B", date: "2023-09-02" },
-    { id: 24, projectName: "Project C", date: "2023-09-03" },
-];
+window.addEventListener("load", fetchDataAndPopulateTable);
+var reports=[];
+async function fetchDataAndPopulateTable() {
+    const tableBody = document.querySelector("tbody");
+    tableBody.innerHTML = "";
+
+    // Replace 'API_URL' with the actual URL of your API
+   await fetch('http://localhost:8080/report/fetchAll')
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data,'keydat')
+            reports = data;
+            data.forEach((employee) => {
+                const row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${employee.id}
+                    <td>${employee.projectName}</td>
+                    <td>${employee.date}</td>
+                `;
+            });
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+        });
+}
 
 const reportTable = document.getElementById("reportTable");
 const dateFilter = document.getElementById("dateFilter");
 const projectFilter = document.getElementById("projectFilter");
 const pagination = document.getElementById("pagination");
 
+
+
 // Function to display reports in the table
-function displayReports(reports) {debugger
+function displayReports(reports) {
 
     reportTable.innerHTML = "";
     for (const report of reports) {
@@ -49,14 +50,20 @@ function displayReports(reports) {debugger
 function handlePagination(pageNumber, pageSize) {
     const startIndex = (pageNumber - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    const paginatedReports = reports.slice(startIndex, endIndex);
-    displayReports(paginatedReports);
+    if(reports.length > 0){
+        const paginatedReports = reports.slice(startIndex, endIndex);
+        displayReports(paginatedReports);
+    }
+
+    
+
 }
 
 // Function to filter reports by date and project
 function filterReports() {
     const filteredReports = reports.filter(report => {
         const selectedDate = dateFilter.value;
+        console.log(selectedDate,"datttttt");
         const selectedProject = projectFilter.value.toLowerCase();
         return (
             (!selectedDate || report.date === selectedDate) &&
@@ -73,12 +80,15 @@ projectFilter.addEventListener("input", filterReports);
 // Implement pagination controls and logic here
 
 // Sample pagination code (replace with your own)
-const totalPages = Math.ceil(reports.length / 10);
-for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement("button");
-    button.textContent = i;
-    button.addEventListener("click", () => {
-        handlePagination(i, 10);
-    });
-    pagination.appendChild(button);
+if(reports?.length > 0){
+    const totalPages = Math.ceil(reports.length / 10);
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.addEventListener("click", () => {
+            handlePagination(i, 10);
+        });
+        pagination.appendChild(button);
+    }
 }
+
