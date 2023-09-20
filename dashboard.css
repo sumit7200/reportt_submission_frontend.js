@@ -11,29 +11,28 @@ body {
 
 .container {
     width: 97%;
-    display: flex; /* Use flexbox to create a layout */
-    /* max-width: 1200px; Increase max width to accommodate the sidebar */
+    display: flex;
     margin: 0 auto;
     padding: 20px;
     background-color: #f0f0f0;
-    justify-content: space-between; /* Create space between main content and sidebar */
+    justify-content: space-between;
 }
 
 .main-content {
-    flex: 1; /* Allow the main content to take up remaining space */
+    flex: 1;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 20px;
 }
 
-.sidebar {
-    width: 250px; /* Set the width of the sidebar */
+/* .sidebar {
+    width: 250px;
     background-color: #333;
     color: #fff;
     padding: 20px;
     border-radius: 5px;
-}
+} */
 
 h1 {
     text-align: center;
@@ -106,3 +105,53 @@ button#filterButton:hover {
     right: '371px';
     top: '-40px';
 }
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
