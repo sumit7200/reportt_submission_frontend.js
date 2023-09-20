@@ -37,7 +37,7 @@ label{
 }
 input{
 	width: 60%;
-	height: 20px;
+	height: 14px;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
@@ -87,4 +87,18 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
+}
+
+/* Role */
+select{
+	width: 65%;
+	height: 34px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
 }

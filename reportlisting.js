@@ -1,14 +1,13 @@
 window.addEventListener("load", fetchDataAndPopulateTable);
-var reports=[];
+var reports = [];
 async function fetchDataAndPopulateTable() {
     const tableBody = document.querySelector("tbody");
     tableBody.innerHTML = "";
 
-    // Replace 'API_URL' with the actual URL of your API
-   await fetch('http://localhost:8080/report/fetchAll')
+    await fetch('http://localhost:8080/report/fetchAll')
         .then((response) => response.json())
         .then((data) => {
-            console.log(data,'keydat')
+            console.log(data, 'keydat')
             reports = data;
             data.forEach((employee) => {
                 const row = tableBody.insertRow();
@@ -29,9 +28,6 @@ const dateFilter = document.getElementById("dateFilter");
 const projectFilter = document.getElementById("projectFilter");
 const pagination = document.getElementById("pagination");
 
-
-
-// Function to display reports in the table
 function displayReports(reports) {
 
     reportTable.innerHTML = "";
@@ -46,41 +42,34 @@ function displayReports(reports) {
     }
 }
 
-// Function to handle pagination (replace with actual pagination logic)
 function handlePagination(pageNumber, pageSize) {
     const startIndex = (pageNumber - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    if(reports.length > 0){
+    if (reports.length > 0) {
         const paginatedReports = reports.slice(startIndex, endIndex);
         displayReports(paginatedReports);
     }
-
-    
-
 }
 
-// Function to filter reports by date and project
 function filterReports() {
     const filteredReports = reports.filter(report => {
         const selectedDate = dateFilter.value;
-        console.log(selectedDate,"datttttt");
+        console.log(selectedDate, "datttttt");
         const selectedProject = projectFilter.value.toLowerCase();
         return (
             (!selectedDate || report.date === selectedDate) &&
             (!selectedProject || report.projectName.toLowerCase().includes(selectedProject))
         );
     });
-    handlePagination(1, 10); // Reset pagination to the first page
+    handlePagination(1, 10);
     displayReports(filteredReports);
 }
 
-handlePagination(1, 10); // Display the first page of reports
+handlePagination(1, 10);
 dateFilter.addEventListener("change", filterReports);
 projectFilter.addEventListener("input", filterReports);
-// Implement pagination controls and logic here
 
-// Sample pagination code (replace with your own)
-if(reports?.length > 0){
+if (reports?.length > 0) {
     const totalPages = Math.ceil(reports.length / 10);
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement("button");
@@ -91,4 +80,3 @@ if(reports?.length > 0){
         pagination.appendChild(button);
     }
 }
-
